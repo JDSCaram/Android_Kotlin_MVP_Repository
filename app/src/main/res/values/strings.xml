@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">architectureexamplekotlin</string>
+    <string name="bt_ok">OK</string>
+    <string name="bt_yes">YES</string>
+    <string name="bt_no">NO</string>
+    <string name="breed">Breed:</string>
+    <string name="country">Country:</string>
+    <string name="origin">Origin:</string>
+    <string name="coat">Coat:</string>
+    <string name="pattern">Pattern:</string>
+</resources>
