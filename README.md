@@ -5,20 +5,17 @@ This Android Kotlin project using an classic architecture MVP with repository pa
 
 I am providing the Repository with all necessary dependencies 
 
-
-
-```java
+```kotlin
 @Singleton
-@Component(modules = {
-        ApplicationModule.class,
-        RetrofitModule.class,
-        RoomModule.class,
-        SharedPrefsModule.class,
-        RepositoryModule.class})
-public interface ApplicationComponent {
-    void inject(Context contextApplication);
-
-    Repository provideRepository();
+@Component(modules = [
+    ApplicationModule::class,
+    RepositoryModule::class,
+    RetrofitModule::class,
+    SharedPrefsModule::class,
+    RoomModule::class])
+interface ApplicationComponent : AndroidInjector<SampleApplication> {
+    fun inject(applicationContext: Context)
+    fun provideRepositort(): Repository
 }
 
 ```
@@ -28,18 +25,19 @@ public interface ApplicationComponent {
 
 ![Alt text](https://github.com/JDSCaram/Android_Kotlin_MVP_Repository/blob/master/images/pattern_repository.png "Repository")
 
-```java
+
+Samples:
+```kotlin
 
 //Acesso Local (Database):
-repository.beginLocal()
-                .getDatabase().cityWeatherDao().insertCityWeather(entity);
+mRepository.local()?.getDatabase()?.breedDao()?.insertBreeds(entities)
                 
 //Acesso Local (Prefs):
-repository.beginLocal()
+repository.local()?
                 .getPrefs();
                 
 //Acesso Remote (WebService)
-mRepository.beginRemote().getRetrofit().create(API.class)
+mRepository.remote()?.getRetrofit()?.create(API::class.java)
 
 
 ```
