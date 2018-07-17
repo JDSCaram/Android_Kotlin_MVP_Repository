@@ -21,5 +21,5 @@ import javax.inject.Singleton
     RoomModule::class])
 interface ApplicationComponent : AndroidInjector<SampleApplication> {
     fun inject(applicationContext: Context)
-    fun provideRepositort(): Repository
+    fun provideRepository(): Repository
 }
